@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t mallamty/Working-With-Docker -f Dockerfile.dev .
+
+script:
+  - docker run mallamty/Working-With-Docker npm run test -- --coverage
+
